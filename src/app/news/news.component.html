@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <!--<div class="row">
+    <div *ngFor="let article of articles" class="col-12 col-sm-6 col-md-4 col-lg-3 card">
+        <img src="https://images.sk-static.com/images/media/profile_images/artists/29315/huge_avatar" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title.rendered }}</h5>
+          <p class="card-text">{{ article.date }}</p>
+          <p class="card-text">{{ article.excerpt.rendered }}</p>
+          <a href="#" class="btn btn-primary">Ir a la noticia</a>
+        </div>
+      </div>
+    </div>-->
+  <div class="row">
+    <div  *ngFor="let article of articles"  class="col-12 col-md-6">
+      <div class="tarjeta">
+        <div class="row align-items-center">
+          <div class="col-md-3">
+            <div style="width: 75%; border-radius: 50%; overflow: hidden;">
+              <img src="https://images.sk-static.com/images/media/profile_images/artists/29315/huge_avatar" alt="" style="width: 100%;">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h3>{{ article.title.rendered }}</h3>
+            <p class="text-muted">{{ article.date }}</p>
+            <div [innerHTML]="article.excerpt.rendered"></div>
+            <a [routerLink]="['/article', article.id]">Ver más...</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
