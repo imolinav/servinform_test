@@ -15,4 +15,8 @@ export class ApiService {
   public getArticle(id) {
     return this.httpClient.get('https://www.circuitricardotormo.com/wp-json/wp/v2/posts/' + id + '?_embedbed');
   }
+
+  public getArticlePhoto(url) {
+    return this.httpClient.get(url);
+  }
 }

@@ -1,33 +1,19 @@
-<div class="container mt-5">
-  <!--<div class="row">
-    <div *ngFor="let article of articles" class="col-12 col-sm-6 col-md-4 col-lg-3 card">
-        <img src="https://images.sk-static.com/images/media/profile_images/artists/29315/huge_avatar" alt="">
-        <div class="card-body">
-          <h5 class="card-title">{{ article.title.rendered }}</h5>
-          <p class="card-text">{{ article.date }}</p>
-          <p class="card-text">{{ article.excerpt.rendered }}</p>
-          <a href="#" class="btn btn-primary">Ir a la noticia</a>
+<div class="row mt-3">
+  <div *ngFor="let article of articles" class="col-xs-12 col-sm-12 col-md-6">
+    <div class="card mb-3" style="height: 275px;">
+      <div class="row no-gutters h-100">
+        <div class="col-md-4">
+          <a [routerLink]="['/article', article.id]"><img src="{{ getPhoto(article) }}" class="card-img h-100" alt="" style="object-fit: cover;"></a>
         </div>
-      </div>
-    </div>-->
-  <div class="row">
-    <div  *ngFor="let article of articles"  class="col-12 col-md-6">
-      <div class="tarjeta">
-        <div class="row align-items-center">
-          <div class="col-md-3">
-            <div style="width: 75%; border-radius: 50%; overflow: hidden;">
-              <img src="https://images.sk-static.com/images/media/profile_images/artists/29315/huge_avatar" alt="" style="width: 100%;">
-            </div>
-          </div>
-          <div class="col-md-8">
-            <h3>{{ article.title.rendered }}</h3>
-            <p class="text-muted">{{ article.date }}</p>
-            <div [innerHTML]="article.excerpt.rendered"></div>
-            <a [routerLink]="['/article', article.id]">Ver más...</a>
+        <div class="col-md-8">
+          <div class="card-body">
+            <a [routerLink]="['/article', article.id]"><h5 class="card-title text-dark">{{ article.title.rendered }}</h5></a>
+            <h6 class="card-subtitle mb-2 text-muted font-weight-light">{{ getDate(article) }}</h6>
+            <div [innerHTML]="article.excerpt.rendered" style="min-height: 100px; max-height: 100px; overflow: hidden;"></div>
+            <a [routerLink]="['/article', article.id]" class="btn btn-dark mt-3 float-right hvr-icon-forward">Ir a la noticia <i class="fas fa-caret-right ml-2 hvr-icon"></i></a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
